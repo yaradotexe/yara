@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | yara.pw</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-ascii {
+            white-space: pre;
+            margin-bottom: 2rem;
+            font-size: 14px;
+            color: #ff003c;
+            text-shadow: 0 0 15px rgba(255, 0, 60, 0.6);
+            display: inline-block;
+            text-align: left;
+        }
+
+        .sys-failure {
+            font-size: 2rem;
+            color: #ff003c;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed #ff003c;
+            padding-bottom: 0.5rem;
+        }
+
+        .error-link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: var(--term-color);
+            text-decoration: none;
+            border: 1px dashed var(--term-color);
+            padding: 0.5rem 1.2rem;
+            transition: all 0.3s ease;
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+        }
+
+        .error-link:hover {
+            background: var(--term-color);
+            color: #000;
+        }
+    </style>
+</head>
+<body class="crt">
+
+    <div id="main-content" style="display: block; opacity: 1; overflow: hidden; scroll-snap-type: none;">
+        <section class="error-container">
+            <pre class="error-ascii">
+   _  _    ___  _  _
+  | || |  / _ \| || |
+  | || |_| | | | || |_
+  |__   _| |_| |__   _|
+     |_|  \___/   |_|
+            </pre>
+
+            <div class="sys-failure">> KERNEL_PANIC: File not found</div>
+
+            <p style="max-width: 600px; font-size: 1.2rem;">
+                Entweder hast du dich bei der URL vertippt, oder mein Spaghetti-Code hat beschlossen, dass dieser Link heute einfach nicht existieren möchte, lol.
+            </p>
+
+            <a href="https://yara.pw/" class="error-link">[>> ./return_home.sh]</a>
+        </section>
+    </div>
+
+</body>
+</html>
