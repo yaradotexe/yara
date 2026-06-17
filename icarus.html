@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Icarus | yara.pw</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .status-warning {
+            color: #ff003c;
+            border-color: #ff003c !important;
+            box-shadow: 0 0 10px rgba(255, 0, 60, 0.1);
+        }
+
+        .status-warning .timeline-title {
+            color: #ff003c !important;
+        }
+
+        .log-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px dashed rgba(0, 216, 255, 0.2);
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            width: 100%;
+            margin: 1.5rem 0;
+            line-height: 1.4;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--term-color);
+            text-decoration: none;
+            border: 1px dashed var(--term-color);
+            padding: 0.3rem 0.8rem;
+            transition: all 0.3s ease;
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
+        }
+
+        .back-link:hover {
+            background: var(--term-color);
+            color: #000;
+        }
+    </style>
+</head>
+
+<body class="crt">
+
+    <div id="loader">
+        <div class="loader-wrapper">
+            <span id="boot-text"></span><span class="blink">_</span>
+        </div>
+    </div>
+
+    <div id="main-content">
+
+        <section id="icarus-specs">
+            <h2>> cat ./projects/icarus/readme.md</h2>
+
+            <div class="bento-grid" style="grid-template-columns: 1fr; margin-top: 1.5rem;">
+                <div class="bento-box">
+                    <div class="box-title">> sys_info --specs</div>
+
+                    <div class="timeline-item status-warning">
+                        <div class="timeline-date">STATUS: PLANNING_PHASE</div>
+                        <div class="timeline-title">[!] NOT_WORKING_YET</div>
+                        <p>NOTICE: Diese Seite wird live geupdatet, sobald die ersten GitHub Actions fehlerfrei
+                            durchlaufen.</p>
+                    </div>
+
+                    <p style="margin-bottom: 1.5rem;">
+                        > Projekt Icarus ist mein Versuch, das für mich "perfekte" Betriebssystem zu erschaffen; eine
+                        unkaputtbare, unveränderliche Workstation, die genau meine Handschrift trägt.
+                    </p>
+
+                    <div class="skill-tags">
+                        <span class="tag">OS-Basis: Linux Fedora / Bazzite (Atomic Core)</span>
+                        <span class="tag">Image Builder: BlueBuild (via GitHub Actions)</span>
+                        <span class="tag">DE: KDE Plasma (Extrem modular angepasst)</span>
+                        <span class="tag">Features: Custom Boot-Sequenz // OOBE-Portal // Kernel-Optimierung</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="scroll-hint" style="margin-top: 2rem;">[Scroll &darr; für das Mission Briefing]</p>
+        </section>
+
+        <section id="icarus-why">
+            <h2>> cat mission_briefing.txt</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Das Warum (Motivation)</div>
+                <p style="margin-bottom: 1.5rem;">
+                    Als jahrelange Windows-Nutzerin war ich nie wirklich zufrieden mit dem System; nach ersten
+                    Spielereien mit Linux habe ich dann Ende 2024 beschlossen, komplett umzusteigen und Linux als mein
+                    Main-OS zu nutzen. Seither läuft das auch super, ich bin mega zufrieden und lerne jeden Tag dazu.
+                </p>
+                <p>
+                    Mein Problem war bisher nur: Ich konnte zwar den ganzen Müll entfernen und das System exakt so
+                    anpassen, wie ich es mochte; allerdings musste ich bei jedem Rechner wieder komplett von vorne
+                    anfangen. Sachen deinstallieren, Programme einrichten, Themes anpassen; das hat einfach genervt. Als
+                    ich dann durch Bazzite auf BlueBuild gestoßen bin, dachte ich mir: Das ist die perfekte Idee, um
+                    einfach mein komplett eigenes, deklaratives OS-Image zu bauen.
+                </p>
+            </div>
+
+            <p class="scroll-hint" style="margin-top: 3rem;">[Scroll &darr; für Struggles & Logs]</p>
+        </section>
+
+        <section id="icarus-log">
+            <h2>> tail -n 50 project.log</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Struggles & Lessons Learned</div>
+
+                <div class="log-box">
+                    <span style="color: #ff003c;">[CRITICAL] System is far from working yet.</span><br>
+                    <span style="color: #ffb300;">[WARN] Declarative thinking required; procedural commands
+                        invalid.</span><br>
+                    <span style="color: #ff003c;">[ERROR] GitHub Actions Build failed after 10m: Invalid path
+                        token.</span>
+                </div>
+
+                <p style="margin-bottom: 1.5rem;">
+                    Der größte Struggle ist hierbei definitiv das deklarative Denken. Wenn man ein normales OS
+                    konfiguriert, tippt man einfach stumpf Befehle ein; bei einem immutablen OS via BlueBuild musst du
+                    aber vorher schon exakt wissen, welche Datei am Ende in welchem Pfad landen soll, bevor das Image
+                    überhaupt in der Cloud gebacken wird. Ein einziger falscher Pfad im Build-Skript, und die GitHub
+                    Action bricht nach 10 Minuten gnadenlos ab.
+                </p>
+                <p>
+                    Besonders das geplante, eigene OOBE-Portal hat im Kopf schon einige Nerven gekostet; aber der
+                    Lerneffekt in Sachen Container-Infrastruktur und Linux-Dateisysteme ist jetzt schon unbezahlbar.
+                </p>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="/" class="back-link">[>> ./return_to_main.sh]</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const bootLines = [
+            "[OK] Connecting to repository: yara.pw/projects/icarus...",
+            "[OK] Parsing configuration layers...",
+            "[OK] Fetching readme.md...",
+            "> cat readme.md",
+            " "
+        ];
+
+        let lineIndex = 0;
+        const bootText = document.getElementById('boot-text');
+        const loader = document.getElementById('loader');
+        const mainContent = document.getElementById('main-content');
+
+        function typeLine() {
+            if (lineIndex < bootLines.length) {
+                bootText.innerHTML += (lineIndex > 0 ? "<br>" : "") + bootLines[lineIndex];
+                lineIndex++;
+                setTimeout(typeLine, Math.random() * 200 + 100);
+            } else {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        mainContent.style.display = 'block';
+                        void mainContent.offsetWidth;
+                        mainContent.style.opacity = '1';
+                    }, 800);
+                }, 400);
+            }
+        }
+
+        setTimeout(typeLine, 300);
+    </script>
+</body>
+
+</html>

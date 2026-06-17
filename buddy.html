@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bit-By-Bit Buddy | yara.pw</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .status-operational {
+            color: #00ff41;
+            border-color: #00ff41 !important;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+        }
+
+        .status-operational .timeline-title {
+            color: #00ff41 !important;
+        }
+
+        .log-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px dashed rgba(0, 216, 255, 0.2);
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            width: 100%;
+            margin: 1.5rem 0;
+            line-height: 1.4;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--term-color);
+            text-decoration: none;
+            border: 1px dashed var(--term-color);
+            padding: 0.3rem 0.8rem;
+            transition: all 0.3s ease;
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
+        }
+
+        .back-link:hover {
+            background: var(--term-color);
+            color: #000;
+        }
+    </style>
+</head>
+
+<body class="crt">
+
+    <div id="loader">
+        <div class="loader-wrapper">
+            <span id="boot-text"></span><span class="blink">_</span>
+        </div>
+    </div>
+
+    <div id="main-content">
+
+        <section id="bib-specs">
+            <h2>> cat ./projects/bib/readme.md</h2>
+
+            <div class="bento-grid" style="grid-template-columns: 1fr; margin-top: 1.5rem;">
+                <div class="bento-box">
+                    <div class="box-title">> sys_info --specs</div>
+
+                    <div class="timeline-item status-operational">
+                        <div class="timeline-date">STATUS: OPERATIONAL</div>
+                        <div class="timeline-title">[OK] SYSTEM_RUNNING</div>
+                        <p>Lernportal voll funktionsfähig und bereit für die Prüfungsvorbereitung.</p>
+                    </div>
+
+                    <p style="margin-bottom: 1.5rem;">
+                        > Ein smarter Helfer im Browser für Auszubildende der Fachinformatikerausbildung zum
+                        spielerischen Lernen für die AP1.
+                    </p>
+
+                    <div class="skill-tags">
+                        <span class="tag">Stack: HTML5 // CSS3 // JavaScript (Vanilla)</span>
+                        <span class="tag">Target: IHK Abschlussprüfung Teil 1 (AP1)</span>
+                        <span class="tag">Features: Interaktive Quizzes // Gamified Learning</span>
+                        <span class="tag">UI/UX: Retro Terminal Aesthetic</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="scroll-hint" style="margin-top: 2rem;">[Scroll &darr; für das Mission Briefing]</p>
+        </section>
+
+        <section id="bib-why">
+            <h2>> cat mission_briefing.txt</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Das Warum (Motivation)</div>
+                <p style="margin-bottom: 1.5rem;">
+                    Lernen für die Prüfung ist leider unvermeidbar; mir persönlich fällt es aber unglaublich schwer, für
+                    etwas zu lernen, wenn die Unterlagen trocken und immer wieder gleich sind. Spätestens bei der
+                    dritten IHK-Prüfung, aus der ich mir die Fragestellungen klaue, merke ich, wie hart es mir fällt,
+                    die Texte tatsächlich noch aktiv zu lesen und nicht nur stumpf wahrzunehmen.
+                </p>
+                <p>
+                    Während ich nun wirklich keine Profi-Programmiererin bin, habe ich mir schon ein wenig HTML, CSS und
+                    JavaScript beigebracht; das Ganze lief über coole, interaktive Webseiten, die das Lernen
+                    "gamifizieren". Ich dachte mir, warum das nicht auch für die IHK AP1 funktionieren sollte; so
+                    entstand die Idee, ein Lernportal zu bauen, das irgendwie lokal, aber irgendwie auch stabil im
+                    Browser läuft. Gearbeitet habe ich schließlich mit dem LocalStorage und lokalen JSON-Dateien. Daraus
+                    resultiert nun der "Bit-by-Bit-Buddy"; ein sarkastischer Coach, der einem in einem
+                    80er-Jahre-Terminal zur Seite steht, während man sich durch die Prüfungsthemen prügelt.
+                </p>
+            </div>
+
+            <p class="scroll-hint" style="margin-top: 3rem;">[Scroll &darr; für Struggles & Logs]</p>
+        </section>
+
+        <section id="bib-log">
+            <h2>> tail -n 50 project.log</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Struggles & Lessons Learned</div>
+
+                <div class="log-box">
+                    <span style="color: #00ff41;">[OK] Local Storage session handler connected.</span><br>
+                    <span style="color: #ffb300;">[WARN] Code style: Sticky spaghetti refactored to modular
+                        JS.</span><br>
+                    <span style="color: #ffb300;">[WARN] Buddy intelligence dataset currently incomplete.</span>
+                </div>
+
+                <p style="margin-bottom: 1.5rem;">
+                    Der größte Struggle war für mich definitiv die Umsetzung der Datenbank; die Hälfte der Zeit sah der
+                    JavaScript-Code einfach aus wie extrem klebrige Spaghetti. Durch viel Ausprobieren und die tatkräftige Hilfe
+                    von ein paar Programmierer-Freunden habe ich beides am Ende aber echt gut hinbekommen.
+                </p>
+                <p>
+                    Nun ist das Einzige, woran es aktuell noch ein wenig hapert, das tatsächliche Content-Wissen vom
+                    Buddy; die Logik steht zwar, aber die JSON-Datenbank muss jetzt nach und nach mit dem echten
+                    Prüfungsstoff gefüttert werden.
+                </p>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="/" class="back-link">[>> ./return_to_main.sh]</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const bootLines = [
+            "[OK] Connecting to repository: yara.pw/projects/bit-by-bit-buddy...",
+            "[OK] Initializing local storage session handler...",
+            "[OK] Loading exam_questions_db.json...",
+            "> cat readme.md",
+            " "
+        ];
+
+        let lineIndex = 0;
+        const bootText = document.getElementById('boot-text');
+        const loader = document.getElementById('loader');
+        const mainContent = document.getElementById('main-content');
+
+        function typeLine() {
+            if (lineIndex < bootLines.length) {
+                bootText.innerHTML += (lineIndex > 0 ? "<br>" : "") + bootLines[lineIndex];
+                lineIndex++;
+                setTimeout(typeLine, Math.random() * 200 + 100);
+            } else {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        mainContent.style.display = 'block';
+                        void mainContent.offsetWidth;
+                        mainContent.style.opacity = '1';
+                    }, 800);
+                }, 400);
+            }
+        }
+
+        setTimeout(typeLine, 300);
+    </script>
+</body>
+
+</html>

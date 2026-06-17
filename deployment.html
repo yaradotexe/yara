@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Hosting Infrastructure | yara.pw</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .status-secured {
+            color: #00d8ff;
+            border-color: #00d8ff !important;
+            box-shadow: 0 0 10px rgba(0, 216, 255, 0.1);
+        }
+
+        .status-secured .timeline-title {
+            color: #00d8ff !important;
+        }
+
+        .manifest-box {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border: 1px dashed var(--term-color);
+            margin: 1.5rem 0;
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .log-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px dashed rgba(0, 216, 255, 0.2);
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            width: 100%;
+            margin: 1.5rem 0;
+            line-height: 1.4;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--term-color);
+            text-decoration: none;
+            border: 1px dashed var(--term-color);
+            padding: 0.3rem 0.8rem;
+            transition: all 0.3s ease;
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
+        }
+
+        .back-link:hover {
+            background: var(--term-color);
+            color: #000;
+        }
+
+        @media (max-width: 900px) {
+            .manifest-box {
+                font-size: 0.6rem;
+                padding: 0.8rem;
+                white-space: pre-wrap;
+            }
+        }
+    </style>
+</head>
+
+<body class="crt">
+
+    <div id="loader">
+        <div class="loader-wrapper">
+            <span id="boot-text"></span><span class="blink">_</span>
+        </div>
+    </div>
+
+    <div id="main-content">
+
+        <section id="hosting-specs">
+            <h2>> cat ./projects/hosting/readme.md</h2>
+
+            <div class="bento-grid">
+                <div class="bento-box">
+                    <div class="box-title">> system_architecture</div>
+
+                    <div class="timeline-item status-secured" style="margin-top: 0.5rem;">
+                        <div class="timeline-date">HOST PLATFORM</div>
+                        <div class="timeline-title">GitHub Pages</div>
+                        <p>Static Deployment via automated branch tracking.</p>
+                    </div>
+
+                    <div class="timeline-item status-secured">
+                        <div class="timeline-date">EDGE PROXY</div>
+                        <div class="timeline-title">Cloudflare CDN</div>
+                        <p>Global Edge Routing, Anycast DNS & WAF Mitigation.</p>
+                    </div>
+                </div>
+
+                <div class="bento-box">
+                    <div class="box-title">> security_manifest</div>
+
+                    <div class="skill-category">
+                        <div class="skill-category-title">Transport Security</div>
+                        <div class="skill-tags">
+                            <span class="tag">HTTPS Enforced</span>
+                            <span class="tag">HSTS Preloaded</span>
+                            <span class="tag">TLS 1.3</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-category-title">Integrity & Vulnerability</div>
+                        <div class="skill-tags">
+                            <span class="tag">DNSSEC Verified</span>
+                            <span class="tag">security.txt deployed</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" style="margin-top: 2rem;">
+                        <div class="skill-category-title">Audit Ratings</div>
+                        <div class="skill-tags">
+                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">SecurityHeaders: A+</span>
+                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">Qualys SSL Labs: A+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="scroll-hint" style="margin-top: 2rem;">[Scroll &darr; für das Mission Briefing]</p>
+        </section>
+
+        <section id="hosting-why">
+            <h2>> cat mission_briefing.txt</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Das Warum</div>
+                <p style="margin-bottom: 1.5rem;">
+                    Ich fand die Idee sehr interessant, einen schönen, ordentlichen und vor allem ansprechenden
+                    Anlaufpunkt für potenzielle Arbeitgeber zu haben; aber auch einfach die Möglichkeit, um für mich
+                    selbst ein wenig "Buch zu führen", was ich in der IT überhaupt schon so getan habe.
+                </p>
+                <p>
+                    Natürlich hätte ich auch einfach von Strato, Wix oder sonstwem einen fertigen Website-Baukasten
+                    nutzen können und mich mit dem Rest gar nicht auseinandersetzen müssen; aber das ist ja nicht
+                    unbedingt Sinn und Ziel der Sache. Der Lerneffekt steht hier absolut im Vordergrund.
+                </p>
+            </div>
+
+            <p class="scroll-hint">[Scroll &darr; für Netzwerk-Architektur]</p>
+        </section>
+
+        <section id="hosting-network">
+            <h2>> traceroute yara.pw</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Routing & DNS-Infrastruktur</div>
+                <p style="margin-bottom: 1.5rem;">
+                    Die Domain wurde komplett ohne weitere Dienste oder unnötige Addons auf Spaceship.com gekauft; von
+                    dort aus wird der gesamte Traffic direkt an die Nameserver von Cloudflare weitergeleitet und ein
+                    CNAME-Record auf GitHub Pages eingerichtet.
+                </p>
+                <p>
+                    Mir war beim Deployment extrem wichtig, darauf zu achten, dass ich das Ganze so sicher wie nur
+                    möglich aufziehe; zum einen, um noch mehr praktische Erfahrung im Bereich Cybersecurity zu sammeln,
+                    aber auch, weil das Internet nun mal voller böser Menschen ist.
+                </p>
+            </div>
+
+            <p class="scroll-hint">[Scroll &darr; für Security Hardening]</p>
+        </section>
+
+        <section id="hosting-security">
+            <h2>> iptables -L -n -v</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Edge Security & Hardening Manifest</div>
+                <p style="margin-bottom: 1.2rem;">
+                    Diese Instanz wurde bewusst nach modernen Best Practices gehärtet, um eine manipulationssichere und
+                    performante Web-Infrastruktur zu demonstrieren. Der Schutz vor Man-in-the-Middle-Angriffen und
+                    bösartigem Bot-Traffic erfolgt direkt an der Edge, ohne die Integrität des statischen Deployments zu
+                    gefährden.
+                </p>
+
+                <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                    <span class="tag">DNSSEC aktiviert</span>
+                    <span class="tag">HSTS Preloaded</span>
+                    <span class="tag">Bot Fight Mode</span>
+                    <span class="tag">WAF Geoblock Rules</span>
+                    <span class="tag">CAA Records (Lets Encrypt / Google Trust)</span>
+                    <span class="tag">IPv6 Native</span>
+                </div>
+
+                <p>
+                    Das Ergebnis des Audits spricht für sich: Die Infrastruktur erreicht fehlerfreie **A+ Ratings bei
+                    SecurityHeaders** sowie **A+ Ratings bei Qualys SSL Labs**.
+                </p>
+            </div>
+
+
+            <p class="scroll-hint">[Scroll &darr; für Struggles & Logs]</p>
+        </section>
+
+
+
+        <section id="hosting-log">
+            <h2>> tail -n 50 project.log</h2>
+
+            <div class="bento-box" style="width: 100%; max-width: 900px; text-align: left;">
+                <div class="box-title">> Struggles & Lessons Learned</div>
+
+                <div class="log-box">
+                    <span style="color: #00ff41;">[OK] GitHub Pages build successful.</span><br>
+                    <span style="color: #ff003c;">[ERROR] SSL Handshake Failed: Too many redirects (Flexible Mode
+                        loop).</span><br>
+                    <span style="color: #ffb300;">[WARN] Cloudflare aggressively caching dead CSS layers.
+                        Purging...</span><br>
+                    <span style="color: #00ff41;">[OK] CNAME record verified. DNSSEC active. yara.pw is secured
+                        af.</span>
+                </div>
+
+                <p style="margin-bottom: 1.5rem;">
+                    Der größte Struggle bei diesem Projekt war die unsichtbare Wand zwischen GitHub Pages und
+                    dem Cloudflare Proxy: nach dem Deployment weigerte sich der Browser hartnäckig, das neue CSS zu
+                    laden. Der Übeltäter war der extrem aggressive Edge-Cache von Cloudflare, der die alte Struktur
+                    eingefroren hatte; erst ein kompletter Cache-Purge hat den Knoten gelöst.
+                </p>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="/" class="back-link">[>> ./return_to_main.sh]</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const bootLines = [
+            "[OK] Querying DNS root servers for yara.pw...",
+            "[OK] Checking DNSSEC chain validity...",
+            "[OK] Establishing TLS 1.3 handshake with Cloudflare Edge proxy...",
+            "[OK] Verifying HSTS preload header status...",
+            "> cat security_report.txt",
+            " "
+        ];
+
+        let lineIndex = 0;
+        const bootText = document.getElementById('boot-text');
+        const loader = document.getElementById('loader');
+        const mainContent = document.getElementById('main-content');
+
+        function typeLine() {
+            if (lineIndex < bootLines.length) {
+                bootText.innerHTML += (lineIndex > 0 ? "<br>" : "") + bootLines[lineIndex];
+                lineIndex++;
+                setTimeout(typeLine, Math.random() * 150 + 50);
+            } else {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        mainContent.style.display = 'block';
+                        void mainContent.offsetWidth;
+                        mainContent.style.opacity = '1';
+                    }, 800);
+                }, 400);
+            }
+        }
+
+        setTimeout(typeLine, 300);
+    </script>
+</body>
+
+</html>

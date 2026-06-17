@@ -14,7 +14,7 @@ const mainContent = document.getElementById('main-content');
 
 function typeLine() {
     if (lineIndex < bootLines.length) {
-        bootText.innerHTML += bootLines[lineIndex] + "<br>";
+        bootText.innerHTML += (lineIndex > 0 ? "<br>" : "") + bootLines[lineIndex];
         lineIndex++;
         setTimeout(typeLine, Math.random() * 400 + 200);
     } else {
