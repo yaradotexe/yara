@@ -14,7 +14,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
             margin: 0;
         }
 
@@ -24,29 +24,60 @@
         }
 
         .vcard-container {
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1.2rem;
+        }
+
+        .story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-header span {
+            white-space: nowrap;
         }
 
         .info-line {
+            display: flex;
+            flex-direction: row;
             margin-bottom: 1rem;
             font-size: 1.1rem;
             line-height: 1.4;
-            word-break: break-all;
         }
 
         .label {
             opacity: 0.6;
             font-family: 'Courier New', Courier, monospace;
+            width: 70px; 
+            flex-shrink: 0;
+        }
+
+        .value {
+            font-weight: bold;
+            overflow-wrap: break-word;
+            word-break: keep-all;     
+        }
+
+        .value-link {
+            overflow-wrap: break-word;
+            word-break: break-all;
         }
 
         .download-action {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 2rem;
             padding-top: 1.5rem;
             border-top: 1px dashed rgba(0, 216, 255, 0.3);
+        }
+
+        .download-action .project-link {
+            text-align: center;
+            min-width: 200px;
         }
 
         .blink-cursor {
@@ -71,34 +102,35 @@
                     <span style="font-size: 1rem;">[ _ ] [ □ ] [ x ]</span>
                 </div>
 
-                <div class="vcard-body">
+                    <div class="vcard-body">
                     <div class="info-line">
                         <span class="label">NAME:</span> 
-                        <span style="font-weight: bold;">(Lea) Yara Blankenstein</span><span class="blink-cursor" style="color: #00ff41;">_</span>
+                        <span class="value">Yara Blankenstein<span class="blink-cursor" style="color: #00ff41;">_</span></span>
                     </div>
                     
                     <div class="info-line">
                         <span class="label">ROLE:</span> 
-                        <span>Fachinformatikerin für Systemintegration</span>
+                        <span class="value">Fachinformatikerin für Systemintegration</span>
                     </div>
 
                     <div class="info-line">
                         <span class="label">LOC :</span> 
-                        <span>Papenburg, Niedersachsen</span>
+                        <span class="value">Papenburg, Niedersachsen</span>
                     </div>
 
                     <div class="info-line">
                         <span class="label">MAIL:</span> 
-                        <span>yblankenstein@proton.me</span>
+                        <span class="value value-link">yblankenstein@proton.me</span>
                     </div>
 
                     <div class="info-line">
                         <span class="label">WWW :</span> 
-                        <a href="https://yara.pw" class="timeline-link" style="background: none; padding: 0;">https://yara.pw</a>
+                        <span class="value value-link">
+                            <a href="https://yara.pw" class="timeline-link" style="background: none; padding: 0;">https://yara.pw</a>
+                        </span>
                     </div>
 
                     <div class="download-action">
-                        <!-- Haupt-Aktion: vCard Download -->
                         <a href="Yara.vcf" download="Yara.vcf" class="project-link" style="font-size: 1.2rem;">
                             [>> DOWNLOAD_VCARD.VCF]
                         </a>
