@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yara - Contact</title>
+    <style>
+        /* Hier können wir später noch feine Scanlines oder Terminal-Grün einbauen */
+        body {
+            background-color: #0a0a0a;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .vcard-btn {
+            padding: 15px 25px;
+            background: transparent;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            cursor: pointer;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 0 10px #00ff00;
+            transition: all 0.3s ease;
+        }
+        .vcard-btn:hover {
+            background: #00ff00;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px #00ff00;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="kontakt.vcf" download="Yara_Kontakt.vcf" class="vcard-btn">
+        [ DOWNLOAD_VCARD.EXE ]
+    </a>
+
+</body>
+</html>
