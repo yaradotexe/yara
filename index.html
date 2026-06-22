@@ -28,16 +28,14 @@
 
 <body class="crt">
 
-    <div id="loader">
-        <div class="loader-wrapper">
-            <span id="boot-text"></span><span class="blink">_</span>
+    <div id="loader" style="display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: monospace;">
+        <div class="loader-wrapper" style="display: flex; align-items: center; width: 100%; max-width: 600px; padding: 0 2rem; box-sizing: border-box;">
+            <span id="boot-text" style="white-space: pre-wrap; word-break: break-all;"></span><span class="blink">_</span>
         </div>
     </div>
 
     <div id="main-content">
         <section id="landing">
-            <pre class="huge-ascii">
-            </pre>
             <h1>(Lea) Yara Blankenstein</h1>
             <h2>> Fachinformatikerin für Systemintegration</h2>
             <p>Standort: Papenburg, Niedersachsen</p>
@@ -51,9 +49,9 @@
         <section id="story">
             <div class="bento-box story-container">
 
-                <div class="story-header">
-                    <span style="font-size: 1rem; opacity: 0.8;">> root@yara:~/about</span>
-                    <span style="font-size: 1rem;">[ _ ] [ □ ] [ x ]</span>
+                <div class="story-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 1rem; flex-wrap: wrap; box-sizing: border-box;">
+                    <span style="font-size: 1rem; opacity: 0.8; white-space: nowrap;">> root@yara:~/about</span>
+                    <span style="font-size: 1rem; white-space: nowrap;">[ _ ] [ □ ] [ x ]</span>
                 </div>
 
                 <div class="story-split">
@@ -64,7 +62,7 @@
                             <div style="margin-bottom: 0.5rem;">> Linux-Administration</div>
                             <div>> Server-Infrastruktur</div>
                         </div>
-                        <p>> Mein Fokus liegt auf der Integration von Open-Source-Lösungen, maßgeschneiderter
+                        <p style="margin-top: 1rem;">> Mein Fokus liegt auf der Integration von Open-Source-Lösungen, maßgeschneiderter
                             Linux-Systeme und dem Aufbau sicherer, performanter Netzwerkinfrastruktur.</p>
                     </div>
 
@@ -108,7 +106,7 @@
                     <div class="box-title">> Experience</div>
                     <div class="timeline-item">
                         <div class="timeline-date">2025 - 2027</div>
-                        <div class="timeline-title">Auszubildende FiSi | <a href="#" class="timeline-link">Johannesburg
+                        <div class="timeline-title">Auszubildende FiSi | <a href="https://www.johannesburg.de" class="timeline-link">Johannesburg
                                 GmbH</a>, Surwold</div>
                         <p>Vorbereitung auf AP1/AP2 und Betreuung der internen IT-Infrastruktur durch Setup, Support und
                             Wartung.</p>
@@ -116,7 +114,7 @@
 
                     <div class="timeline-item">
                         <div class="timeline-date">2023 - 2025</div>
-                        <div class="timeline-title">Auszubildende FiSi | <a href="#" class="timeline-link">Medial
+                        <div class="timeline-title">Auszubildende FiSi | <a href="https://medial-networks.de/" class="timeline-link">Medial
                                 Networks</a>, Papenburg</div>
                         <p>Grundlagen der Netzwerkinfrastruktur, First- & Second-Level Support (Telefonisch, Mail,
                             Remote, Vor Ort), initiale Server-Setups und Hardware-Wartung.</p>
@@ -177,21 +175,21 @@
                     <div class="box-title">> Validated_Certs</div>
 
                     <div class="timeline-item">
-                        <div class="timeline-title" style="color: #00ff41; font-weight: bold;">[OK] EF SET Level C2
+                        <div class="timeline-title" style="font-weight: bold;">
+                            [OK] <a href="https://www.efset.org/" class="timeline-link" target="_blank" style="color: #00ff41;">EF SET Level C2</a>
                         </div>
                         <p>Englisch verhandlungssicher / Native Level. Zertifiziert durch EF Sprachreisen.</p>
                     </div>
 
                     <div class="timeline-item">
-                        <div class="timeline-title" style="color: #00ff41; font-weight: bold;">[OK] Cisco Certified
+                        <div class="timeline-title" style="font-weight: bold;">
+                            [OK] <a href="https://www.netacad.com/" class="timeline-link" target="_blank" style="color: #00ff41;">Cisco Certified</a>
                         </div>
                         <p>Abgeschlossene offizielle Cisco-Zertifizierungen:</p>
                         <div class="skill-tags" style="margin-top: 0.8rem;">
                             <span class="tag" style="border-color: #00ff41; color: #00ff41;">Ethical Hacker</span>
-                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">Cybersecurity
-                                Essentials</span>
-                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">IoT & Digitale
-                                Transformation</span>
+                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">Cybersecurity Essentials</span>
+                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">IoT & Digitale Transformation</span>
                         </div>
                     </div>
                 </div>
@@ -205,8 +203,7 @@
                     </div>
 
                     <div class="timeline-item" style="border-left-color: rgba(0, 216, 255, 0.4);">
-                        <div class="timeline-title" style="color: rgba(0, 216, 255, 0.7);">[..] Weitere Cisco-Pipeline
-                        </div>
+                        <div class="timeline-title" style="color: rgba(0, 216, 255, 0.7);">[..] Weitere Cisco-Pipeline</div>
                         <p style="opacity: 0.7;">Geplante Module zur weiteren Spezialisierung:</p>
                         <div class="skill-tags" style="margin-top: 0.8rem;">
                             <span class="tag" style="opacity: 0.5;">CyberOps Associate</span>
@@ -223,16 +220,15 @@
 
             <div class="project-grid">
                 <div class="bento-box">
-                    <div class="project-ascii">
-                        \ | /
-                        '- -'
-                        -- O --
-                        .- -.
-                        / | \
+                    <div class="project-ascii">      
+    \ | /    
+  '-.;;;.-'  
+ -==;;;;;==- 
+  .-';;;'-.  
+    / | \
                     </div>
                     <div class="box-title">> Project Icarus</div>
-                    <p>Custom Linux-Distribution (immutable, bluebuild) und Environment Optimierung für maximale
-                        Performance mit minimal Bloat.</p>
+                    <p>Custom Linux-Distribution (immutable, bluebuild) und Environment Optimierung für maximale Performance mit minimal Bloat.</p>
                     <div class="skill-tags">
                         <span class="tag">Linux</span>
                         <span class="tag">Kernel</span>
@@ -242,15 +238,16 @@
 
                 <div class="bento-box">
                     <div class="project-ascii">
-                        [o]-[o]
-                        | |
-                        |___|
-                        /| |\
-
+    .---.    
+   /     \   
+   | @ @ |   
+   v  -  v   
+   /|   |\   
+  / |___| \  
+  `-"   "-`
                     </div>
                     <div class="box-title">> Bit-By-Bit Buddy</div>
-                    <p>Ein smarter Helfer im Browser für Auszubildende der Fachinformatikerausbildung zum spielerischen
-                        Lernen für die AP1.</p>
+                    <p>Ein smarter Helfer im Browser für Auszubildende der Fachinformatikerausbildung zum spielerischen Lernen für die AP1.</p>
                     <div class="skill-tags">
                         <span class="tag">Webdesign</span>
                         <span class="tag">Tools</span>
@@ -259,17 +256,17 @@
                 </div>
 
                 <div class="bento-box">
-                    <div class="project-ascii">
-                        .----.
-                        / cf \
-                        |========|
-                        | Secure |
-                        | Host |
-                        '--------'
+                    <div class="project-ascii">  
+    .---.    
+   /     \   
+   |     |   
+  .-------.  
+  |   _   |  
+  |  (O)  |  
+  '-------'
                     </div>
                     <div class="box-title">> Portfolio Deployment</div>
-                    <p>Eigene Web-Infrastruktur auf GitHub Pages, optimiert via Cloudflare für maximale Performance und
-                        Edge-Security.</p>
+                    <p>Eigene Web-Infrastruktur auf GitHub Pages, optimiert via Cloudflare für maximale Performance und Edge-Security.</p>
                     <div class="skill-tags">
                         <span class="tag">Cloudflare</span>
                         <span class="tag">Security</span>
@@ -286,8 +283,7 @@
                 <div class="box-title">> Connection Status: LISTENING</div>
 
                 <p style="font-size: 1.2rem; margin-top: 1rem;">
-                    Interesse geweckt? Ich bin momentan auf der Suche nach neuen Herausforderungen in folgenden
-                    Bereichen:
+                    Interesse geweckt? Ich bin momentan auf der Suche nach neuen Herausforderungen in folgenden Bereichen:
                 </p>
 
                 <div class="story-tags" style="margin: 2rem 0;">
@@ -299,10 +295,8 @@
                 </p>
 
                 <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:lea.blankenstein00@gmail.com" class="project-link" style="font-size: 1.2rem;">[>>
-                        Schreib mir 'ne Mail]</a>
-                    <a href="Lebenslauf.pdf" download class="project-link" style="font-size: 1.2rem;">[>>
-                        Lebenslauf.pdf]</a>
+                    <a href="mailto:yblankenstein@proton.me" class="project-link" style="font-size: 1.2rem;">[>> Schreib mir 'ne Mail]</a>
+                    <a href="LYBlankenstein.pdf" download class="project-link" style="font-size: 1.2rem;">[>> Lebenslauf.pdf]</a>
                 </div>
             </div>
 
