@@ -4,309 +4,579 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lea Yara Blankenstein | Fachinformatikerin für Systemintegration</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Lea Yara Blankenstein</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css?v=1.3">
 
-    <link rel="icon" type="image/png" href="/ascii-text-art.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23181825'/%3E%3Cpath d='M14 20 L28 32 L14 44' stroke='%2389b4fa' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cline x1='34' y1='44' x2='48' y2='44' stroke='%2389b4fa' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
     <link rel="apple-touch-icon" href="/ascii-text-art.png">
 
     <meta name="description"
-        content="Portfolio von Lea Yara Blankenstein - Fachinformatikerin für Systemintegration. Linux-Administration, Netzwerk-Integration und sichere IT-Infrastrukturen in Papenburg.">
+        content="Portfolio von Lea Yara Blankenstein">
     <meta name="keywords"
-        content="Lea Yara Blankenstein, Fachinformatikerin, Systemintegration, Linux, OPNsense, Cloudflare, Tailscale, IT-Infrastruktur, Netzwerk-Integration, Papenburg, Emsland">
+        content="Lea Yara Blankenstein, Fachinformatikerin, Systemintegration, Linux, Btrfs, OPNsense, Cloudflare, Tailscale, IT-Infrastruktur, Netzwerk-Integration, Papenburg, Emsland">
     <meta name="author" content="Lea Yara Blankenstein">
     <meta name="robots" content="noindex, nofollow">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yara.pw/">
-    <meta property="og:title" content="Lea Yara Blankenstein | Fachinformatikerin für Systemintegration">
+    <meta property="og:title" content="Lea Yara Blankenstein">
     <meta property="og:description"
-        content="Portfolio von Lea Yara Blankenstein. Linux-Administration, Netzwerk-Integration und sichere Server-Infrastrukturen in Papenburg.">
+        content="Portfolio von Lea Yara Blankenstein.">
     <meta property="og:image" content="https://yara.pw/ascii-text-art.png">
-
 </head>
 
 <body class="crt">
 
-    <div id="loader" style="display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: monospace;">
-        <div class="loader-wrapper" style="display: flex; align-items: center; width: 100%; max-width: 600px; padding: 0 2rem; box-sizing: border-box;">
-            <span id="boot-text" style="white-space: pre-wrap; word-break: break-all;"></span><span class="blink">_</span>
+    <div id="boot-screen">
+        <div id="disclaimer-modal">
+            <div class="disclaimer-title">⚠ SYSTEM NOTICE // CRT & VISUAL EFFECTS</div>
+            <p class="disclaimer-text">
+                Diese Website nutzt CRT-Scanlines, Flackereffekte und Terminal-Animationen.<br>
+                Falls du empfindlich auf Bildschirmflimmern reagierst oder direkt zum Inhalt möchtest, kannst du den Bootvorgang überspringen.
+            </p>
+            <div class="disclaimer-actions">
+                <button id="btn-start-boot" class="disclaimer-btn primary" onclick="runBiosBoot()">[ >> Boot System (BIOS) ]</button>
+                <button id="btn-skip-boot" class="disclaimer-btn skip-btn" onclick="skipBootDirectly(true)">[ >> Direkt zum Portfolio ]</button>
+            </div>
+        </div>
+
+        <div id="bios-container">
+            <div id="bios-stage-1">
+                <div class="bios-top-row">
+                    <div class="bios-award-text">
+                        <div class="award-header-line">
+                            <span class="award-star">★</span> Award Modular BIOS v4.51PG, An Energy Star Ally
+                        </div>
+                        <div class="award-sub">Copyright (C) 2000-2026, Award Software, Inc.</div>
+                        <div class="award-chipset" style="margin-top: 0.6rem;">(YARA-SYS-IT) YaraOS Super-Core PCIset(TM)</div>
+                        <div class="award-cpu" style="margin-top: 0.6rem;">Pentium-S CPU at 75MHz</div>
+
+                        <div id="bios-mem-row" style="margin-top: 0.2rem; display: none;">
+                            Memory Test : <span id="bios-mem-val">0</span>K <span id="bios-mem-status"></span>
+                        </div>
+
+                        <div id="bios-pnp-block" style="margin-top: 0.8rem; display: none;">
+                            Award Plug and Play BIOS Extension v1.0A<br>
+                            Copyright (C) 1997, Award Software, Inc.
+                        </div>
+
+                        <div id="bios-ide-list" style="margin-top: 0.5rem;"></div>
+                    </div>
+
+                    <pre class="bios-dino-logo">
+   .-~~^-.
+ .'  O    \
+(_____,    \
+ `----.     \
+       \     \
+        \     \
+         \     `.             _ _
+          \       ~- _ _ - ~       ~ - .
+           \                              ~-.
+            \                                `.
+             \    /               /       \    \
+              `. |         }     |         }    \
+                `|        /      |        /       \
+                 |       /       |       /          \
+                    </pre>
+                </div>
+
+                <div class="bios-footer-prompt">
+                    <div>Press <b>DEL</b> to enter SETUP, <b>ESC</b> to skip memory test</div>
+                    <div class="bios-serial">12/10/97-i430VX,UMC8669-2A59GHZBC-00</div>
+                </div>
+            </div>
+
+            <div id="bios-stage-2" style="display: none;">
+                <div class="bios-sys-title">System Configurations</div>
+
+                <table class="bios-box-table">
+                    <tbody>
+                        <tr>
+                            <td class="col-l">CPU Type</td><td class="col-v">: Pentium-S</td>
+                            <td class="col-l">Base Memory</td><td class="col-v">: 640K</td>
+                        </tr>
+                        <tr>
+                            <td class="col-l">Co-Processor</td><td class="col-v">: Installed</td>
+                            <td class="col-l">Extended Memory</td><td class="col-v">: 31744K</td>
+                        </tr>
+                        <tr>
+                            <td class="col-l">CPU Clock</td><td class="col-v">: 75MHz</td>
+                            <td class="col-l">Cache Memory</td><td class="col-v">: None</td>
+                        </tr>
+                        <tr class="divider-row"><td colspan="4"></td></tr>
+                        <tr>
+                            <td class="col-l">Diskette Drive A</td><td class="col-v">: 2.88M, 3.5 in.</td>
+                            <td class="col-l">Display Type</td><td class="col-v">: EGA/VGA</td>
+                        </tr>
+                        <tr>
+                            <td class="col-l">Diskette Drive B</td><td class="col-v">: None</td>
+                            <td class="col-l">Serial Port(s)</td><td class="col-v">: 3F8 2F8</td>
+                        </tr>
+                        <tr>
+                            <td class="col-l">Pri. Master Disk</td><td class="col-v">: LBA ,Mode 2, 2621MB</td>
+                            <td class="col-l">Parallel Port(s)</td><td class="col-v">: 378</td>
+                        </tr>
+                        <tr>
+                            <td class="col-l">Pri. Slave Disk</td><td class="col-v">: CDROM, Mode 4</td>
+                            <td class="col-l">EDO DRAM at Row(s)</td><td class="col-v">: None</td>
+                        </tr>
+                        <tr>
+                            <td class="col-l">Sec. Master Disk</td><td class="col-v">: None</td>
+                            <td class="col-l">SDRAM at Row(s)</td><td class="col-v">: 0 1 2 34</td>
+                        </tr>
+                        <tr>
+                            <td class="col-l">Sec. Slave Disk</td><td class="col-v">: None</td>
+                            <td class="col-l">L2 Cache Type</td><td class="col-v">: None</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pci-title">PCI device listing...</div>
+                <table class="pci-table">
+                    <thead>
+                        <tr>
+                            <th>Bus No.</th><th>Device No.</th><th>Func No.</th><th>Vendor ID</th><th>Device ID</th><th>Device Class</th><th>IRQ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td><td>7</td><td>1</td><td>8086</td><td>1230</td><td>IDE Controller</td><td>14</td>
+                        </tr>
+                        <tr>
+                            <td>0</td><td>17</td><td>0</td><td>1274</td><td>1371</td><td>Multimedia Device</td><td>11</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id="bios-dmi-msg" style="margin-top: 1.2rem; min-height: 1.2rem;"></div>
+                <div id="bios-boot-target" style="margin-top: 0.3rem; min-height: 1.2rem; font-weight: bold;"></div>
+            </div>
         </div>
     </div>
 
     <div id="main-content">
-        <section id="landing">
-            <h1>(Lea) Yara Blankenstein</h1>
-            <h2>> Fachinformatikerin für Systemintegration</h2>
-            <p>Standort: Papenburg, Niedersachsen</p>
-
-            <div class="ready-box" onclick="document.getElementById('story').scrollIntoView({behavior: 'smooth'})">
-                >> READY? <span class="blink">_</span>
-                <p class="scroll-hint">[Click or Scroll &darr;]</p>
+        
+        <header class="top-navbar">
+            <div class="nav-left">
+                <span class="sys-indicator"></span>
+                <span>root@yara.pw:~#</span>
             </div>
-        </section>
+            <nav class="nav-right">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Farbthema umschalten">> mocha (dark)</button>
+            </nav>
+        </header>
 
-        <section id="story">
-            <div class="bento-box story-container">
+        <div id="landing" class="snap-stage">
+            <div class="landing-content">
+                <h1 class="landing-title">
+                    <span class="color-hover">(Lea)</span> 
+                    <span class="color-hover color-hover-green">Yara</span> 
+                    <span class="color-hover color-hover-yellow">Blankenstein</span>
+                </h1>
+                <div class="landing-subtitle">> <span class="color-hover color-hover-mauve">Fachinformatikerin für Systemintegration</span></div>
+                <div class="landing-location">Standort: Papenburg, Niedersachsen</div>
 
-                <div class="story-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 1rem; flex-wrap: wrap; box-sizing: border-box;">
-                    <span style="font-size: 1rem; opacity: 0.8; white-space: nowrap;">> root@yara:~/about</span>
-                    <span style="font-size: 1rem; white-space: nowrap;">[ _ ] [ □ ] [ x ]</span>
-                </div>
-
-                <div class="story-split">
-
-                    <div>
-                        <div class="story-tags left-border-tags">
-                            <div style="margin-bottom: 0.5rem;">> Netzwerk-Integration</div>
-                            <div style="margin-bottom: 0.5rem;">> Linux-Administration</div>
-                            <div>> Server-Infrastruktur</div>
-                        </div>
-                        <p style="margin-top: 1rem;">> Mein Fokus liegt auf der Integration von Open-Source-Lösungen, maßgeschneiderter
-                            Linux-Systeme und dem Aufbau sicherer, performanter Netzwerkinfrastruktur.</p>
-                    </div>
-
-                    <div class="story-right-col">
-                        <div class="box-title" style="font-size: 1.2rem; border-bottom: none; margin-bottom: 1rem;">>
-                            whoami --specs</div>
-
-                        <div style="margin-bottom: 0.8rem;">
-                            <span style="opacity: 0.6;">Uptime:</span> <br>
-                            <span class="tag" style="border: none; padding: 0; background: none;">Since 2000</span>
-                        </div>
-                        <div style="margin-bottom: 0.8rem;">
-                            <span style="opacity: 0.6;">Localhost:</span> <br>
-                            <span class="tag" style="border: none; padding: 0; background: none;">127.0.0.1 //
-                                Papenburg, NDS</span>
-                        </div>
-                        <div style="margin-bottom: 0.8rem;">
-                            <span style="opacity: 0.6;">Languages:</span> <br>
-                            <span class="tag" style="border: none; padding: 0; background: none;">de_DE, en_US</span>
-                        </div>
-                        <div style="margin-bottom: 0.8rem;">
-                            <span style="opacity: 0.6;">Env_Vars:</span> <br>
-                            <span class="tag" style="border: none; padding: 0; background: none;">THEME=dark
-                                VIBE=retro</span>
-                        </div>
-                        <div style="margin-bottom: 0.8rem;">
-                            <span style="opacity: 0.6;">Power Source:</span> <br>
-                            <span class="tag" style="border: none; padding: 0; background: none;">Caffeine & good
-                                music</span>
-                        </div>
-                    </div>
-
+                <div class="ready-box" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                    >> READY? <span class="blink">_</span>
+                    <p class="scroll-hint">[Click or Scroll &darr;]</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="skills">
-            <h2>> cat experience_and_skills.txt</h2>
-            <div class="bento-grid">
-                <div class="bento-box">
-                    <div class="box-title">> Experience</div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2025 - 2027</div>
-                        <div class="timeline-title">Auszubildende FiSi | <a href="https://www.johannesburg.de" class="timeline-link">Johannesburg
-                                GmbH</a>, Surwold</div>
-                        <p>Vorbereitung auf AP1/AP2 und Betreuung der internen IT-Infrastruktur durch Setup, Support und
-                            Wartung.</p>
+        <div id="about" class="snap-stage">
+            <section class="win-card">
+                <div class="win-header">
+                    <div class="win-title">
+                        <span>terminal://user/whoami.md</span>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023 - 2025</div>
-                        <div class="timeline-title">Auszubildende FiSi | <a href="https://medial-networks.de/" class="timeline-link">Medial
-                                Networks</a>, Papenburg</div>
-                        <p>Grundlagen der Netzwerkinfrastruktur, First- & Second-Level Support (Telefonisch, Mail,
-                            Remote, Vor Ort), initiale Server-Setups und Hardware-Wartung.</p>
+                    <div class="win-controls">
+                        <span class="win-dot dot-red"></span>
+                        <span class="win-dot dot-yellow"></span>
+                        <span class="win-dot dot-green"></span>
                     </div>
                 </div>
 
-                <div class="bento-box">
-                    <div class="box-title">> Skills & Arsenal</div>
+                <div class="win-body about-content">
+                    <div class="about-headline">> <span class="color-hover color-hover-pink">Moin,</span> <span class="color-hover color-hover-green">ich bin</span> <span class="color-hover color-hover-yellow">Yara!</span></div>
 
-                    <div class="skill-category">
-                        <div class="skill-category-title">OS & Environments</div>
-                        <div class="skill-tags">
-                            <span class="tag">Linux (Fedora, Rocky)</span>
-                            <span class="tag">Windows Server</span>
+                    <p class="about-desc">
+                        Nach gut zweieinhalb Jahren im Support für KMUs schließe ich demnächst meine Ausbildung zur Fachinformatikerin für Systemintegration ab.<br><br>
+                        Mein Fokus: Netzwerke, Linux und Security.<br>
+                        Ich gebe mich nicht damit zufrieden, dass ein System einfach nur „irgendwie läuft“, sondern will verstehen, absichern und optimieren.
+                        Nebenbei tüftle ich an eigenen Setups, bereite mich auf Cisco-Zertifizierungen vor und baue Tools, die den Alltag leichter machen.
+                    </p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <span class="spec-label">Localhost</span>
+                            <span class="spec-val">127.0.0.1<br>Papenburg, NDS</span>
                         </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-category-title">Infrastruktur & Virtualisierung</div>
-                        <div class="skill-tags">
-                            <span class="tag">Hyper-V</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">RAIDs</span>
-                            <span class="tag">OPNsense</span>
-                            <span class="tag">FreePBX</span>
+                        <div class="spec-item">
+                            <span class="spec-label">Env_Vars</span>
+                            <span class="spec-val">THEME=dark<br>VIBE=retro</span>
                         </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-category-title">Netzwerk & Security</div>
-                        <div class="skill-tags">
-                            <span class="tag">Routing/Switching</span>
-                            <span class="tag">IPv4/IPv6</span>
-                            <span class="tag">Subnetting</span>
-                            <span class="tag">Tailscale</span>
-                            <span class="tag">Cloudflare Tunnels</span>
+                        <div class="spec-item">
+                            <span class="spec-label">Uptime</span>
+                            <span class="spec-val">Since 2000<br>(LTS Version)</span>
                         </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <div class="skill-category-title">Creative & UI/UX</div>
-                        <div class="skill-tags">
-                            <span class="tag">Blender 3D</span>
-                            <span class="tag">Unity Engine</span>
-                            <span class="tag">Adobe Photoshop CC</span>
-                            <span class="tag">Substance Painter</span>
+                        <div class="spec-item">
+                            <span class="spec-label">Languages</span>
+                            <span class="spec-val">de_DE (C2)<br>en_US (C2)</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <section id="certificates">
-            <h2>> ./verify_certificates.sh</h2>
+        <div id="experience" class="snap-stage">
+            <section class="win-card">
+                <div class="win-header">
+                    <div class="win-title"><span>/var/log/experience.log</span></div>
+                    <div class="win-controls">
+                        <span class="win-dot dot-red"></span>
+                        <span class="win-dot dot-yellow"></span>
+                        <span class="win-dot dot-green"></span>
+                    </div>
+                </div>
+                <div class="win-body">
+                    
+                    <div class="timeline-entry">
+                        <div class="timeline-period">2025 - 2027 // Aktuell</div>
+                        <div class="timeline-role">Auszubildende FiSi | <a href="https://www.johannesburg.de" target="_blank" rel="noopener" class="color-hover color-hover-green">Johannesburg GmbH</a>, Surwold</div>
+                        <p class="timeline-desc">Betreuung und stetige Optimierung der internen heterogenen IT-Landschaft.</p>
+                        <ul class="timeline-bullets">
+                            <li>Administration & Wartung von Linux- und Windows-Serversystemen</li>
+                            <li>Netzwerk-Monitoring, Firewall-Konfiguration und User Support (AP1 & AP2 Vorbereitung)</li>
+                            <li>Umsetzung von Virtualisierungs- und Datensicherungskonzepten</li>
+                        </ul>
+                    </div>
 
-            <div class="bento-grid">
-                <div class="bento-box">
-                    <div class="box-title">> Validated_Certs</div>
+                    <div class="timeline-entry">
+                        <div class="timeline-period">2023 - 2025</div>
+                        <div class="timeline-role">Auszubildende FiSi | <a href="https://medial-networks.de/" target="_blank" rel="noopener" class="color-hover color-hover-yellow">Medial Networks</a>, Papenburg</div>
+                        <p class="timeline-desc">Solide Grundausbildung in Systemintegration, ISP-Umfeld und Kundensupport.</p>
+                        <ul class="timeline-bullets">
+                            <li>1st & 2nd Level Support via Telefon, E-Mail, Remote & Vor-Ort-Einsätzen</li>
+                            <li>Initiales Server-Provisioning, Hardware-Diagnose & Komponententausch</li>
+                            <li>Strukturierte Verkabelung, Router-/Switch-Konfigurationen und VLAN-Setups</li>
+                        </ul>
+                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-title" style="font-weight: bold;">
-                            [OK] <a href="https://www.efset.org/" class="timeline-link" target="_blank" style="color: #00ff41;">EF SET Level C2</a>
+                </div>
+            </section>
+        </div>
+
+        <div id="certifications" class="snap-stage">
+            <section class="win-card">
+                <div class="win-header">
+                    <div class="win-title"><span>/var/auth/verified_credentials.cert</span></div>
+                    <div class="win-controls">
+                        <span class="win-dot dot-red"></span>
+                        <span class="win-dot dot-yellow"></span>
+                        <span class="win-dot dot-green"></span>
+                    </div>
+                </div>
+                <div class="win-body">
+                    <div class="certs-grid">
+                        
+                        <a href="https://www.credly.com/earner/earned/badge/b7085803-eebf-401f-99cb-554ff1e5f109" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/cyberops-associate.png" alt="Cisco CyberOps Associate Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">CyberOps Associate</div>
+                                <div class="cert-issuer">Cisco Networking Academy</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/be26e25a-0590-497f-800b-8682967963ba" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/ethical-hacker.png" alt="Cisco Ethical Hacker Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Ethical Hacker</div>
+                                <div class="cert-issuer">Cisco Networking Academy</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/0cb8c649-0c95-4e85-b92e-d1861f9dea74" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/sustainability.png" alt="IBM Sustainability and Technology Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Sustainability & Tech</div>
+                                <div class="cert-issuer">IBM SkillsBuild</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/bc657c14-5d54-45e5-b7ed-ec00c540ebbc" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/fundamentals.png" alt="IBM Cybersecurity Fundamentals Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Cybersecurity Fundamentals</div>
+                                <div class="cert-issuer">IBM SkillsBuild</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/ce799dac-22a3-42ba-9b27-73344f4c0535" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/data-literacy.png" alt="IBM Data Literacy Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Data Literacy</div>
+                                <div class="cert-issuer">IBM SkillsBuild</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/01604921-aa12-4821-af74-725308ad9753" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/emerging-tech.png" alt="IBM Explore Emerging Tech Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Explore Emerging Tech</div>
+                                <div class="cert-issuer">IBM SkillsBuild</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/39e7e40e-6c76-40da-9478-b7ff08160ab0" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/getting-started.png" alt="IBM Getting Started with Cybersecurity Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Getting Started CyberSec</div>
+                                <div class="cert-issuer">IBM SkillsBuild</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/47f066a5-fd33-4bcb-a7b1-8d5d96c72020" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/governance.png" alt="IBM Governance, Risk and Compliance Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">GRC & Privacy</div>
+                                <div class="cert-issuer">IBM SkillsBuild</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/2d61a138-03eb-479e-a967-54c8b5313866" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/introduction-to-iot.png" alt="Cisco Introduction to IoT Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Introduction to IoT</div>
+                                <div class="cert-issuer">Cisco Networking Academy</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.credly.com/earner/earned/badge/82a44c1a-29a5-4059-97c2-954e880da475" target="_blank" rel="noopener" class="cert-card">
+                            <div class="pixel-badge"><img src="badges/threat-detection.png" alt="Datadog Attacks and Threat Detection Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">Attacks & Threat Detection</div>
+                                <div class="cert-issuer">Datadog</div>
+                            </div>
+                        </a>
+
+                        <div class="cert-card cert-locked" title="In Vorbereitung: CCNA">
+                            <span class="soon-overlay">[ Soon™ ]</span>
+                            <div class="pixel-badge"><img src="badges/soon-ccna.png" alt="CCNA Locked Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">CCNA: Enterprise Networking, Security, and Automation</div>
+                                <div class="cert-issuer">Cisco Networking Academy</div>
+                            </div>
                         </div>
-                        <p>Englisch verhandlungssicher / Native Level. Zertifiziert durch EF Sprachreisen.</p>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-title" style="font-weight: bold;">
-                            [OK] <a href="https://www.netacad.com/" class="timeline-link" target="_blank" style="color: #00ff41;">Cisco Certified</a>
+                        <div class="cert-card cert-locked" title="In Vorbereitung: DevNet Associate">
+                            <span class="soon-overlay">[ Soon™ ]</span>
+                            <div class="pixel-badge"><img src="badges/soon-devnet.png" alt="DevNet Associate Locked Badge"></div>
+                            <div class="cert-info">
+                                <div class="cert-title">DevNet Associate</div>
+                                <div class="cert-issuer">Cisco Networking Academy</div>
+                            </div>
                         </div>
-                        <p>Abgeschlossene offizielle Cisco-Zertifizierungen:</p>
-                        <div class="skill-tags" style="margin-top: 0.8rem;">
-                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">Ethical Hacker</span>
-                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">Cybersecurity Essentials</span>
-                            <span class="tag" style="border-color: #00ff41; color: #00ff41;">IoT & Digitale Transformation</span>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="skills" class="snap-stage">
+            <section class="win-card">
+                <div class="win-header">
+                    <div class="win-title"><span>/etc/system/skills.conf</span></div>
+                    <div class="win-controls">
+                        <span class="win-dot dot-red"></span>
+                        <span class="win-dot dot-yellow"></span>
+                        <span class="win-dot dot-green"></span>
+                    </div>
+                </div>
+                <div class="win-body">
+                    <div class="skill-grid-wrap">
+
+                        <div class="skill-group">
+                            <div class="skill-group-title">> Systems & Storage</div>
+                            <div class="tags-wrap">
+                                <span class="pill-tag">Linux (Fedora, Rocky)</span>
+                                <span class="pill-tag">Windows (Server)</span>
+                                <span class="pill-tag">Btrfs, ext4</span>
+                                <span class="pill-tag">RAID-Konfigurationen</span>
+                                <span class="pill-tag">Bash & Shell-Scripting</span>
+                                <span class="pill-tag">Active Directory</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="bento-box">
-                    <div class="box-title">> Tasks_in_Queue (In Progress)</div>
-
-                    <div class="timeline-item" style="border-left-color: rgba(0, 216, 255, 0.4);">
-                        <div class="timeline-title" style="color: rgba(0, 216, 255, 0.7);">[..] Cisco CCNA</div>
-                        <p style="opacity: 0.7;">Vorbereitung auf die Zertifizierungsprüfung läuft.</p>
-                    </div>
-
-                    <div class="timeline-item" style="border-left-color: rgba(0, 216, 255, 0.4);">
-                        <div class="timeline-title" style="color: rgba(0, 216, 255, 0.7);">[..] Weitere Cisco-Pipeline</div>
-                        <p style="opacity: 0.7;">Geplante Module zur weiteren Spezialisierung:</p>
-                        <div class="skill-tags" style="margin-top: 0.8rem;">
-                            <span class="tag" style="opacity: 0.5;">CyberOps Associate</span>
-                            <span class="tag" style="opacity: 0.5;">Networking Essentials</span>
-                            <span class="tag" style="opacity: 0.5;">Linux Essentials</span>
+                        <div class="skill-group">
+                            <div class="skill-group-title">> DevOps & Services</div>
+                            <div class="tags-wrap">
+                                <span class="pill-tag">Docker & Compose</span>
+                                <span class="pill-tag">Hyper-V</span>
+                                <span class="pill-tag">Container-Management</span>
+                                <span class="pill-tag">FreePBX</span>
+                                <span class="pill-tag">Backup & Disaster Recovery</span>
+                                <span class="pill-tag">System-Troubleshooting</span>
+                            </div>
                         </div>
+
+                        <div class="skill-group">
+                            <div class="skill-group-title">> Network & Security</div>
+                            <div class="tags-wrap">
+                                <span class="pill-tag">OPNsense</span>
+                                <span class="pill-tag">Wireguard & Tailscale</span>
+                                <span class="pill-tag">VLANS & Subnetting</span>
+                                <span class="pill-tag">Cloudflare & DNS</span>
+                                <span class="pill-tag">TLS/SSL & DNSSEC</span>
+                                <span class="pill-tag">Routing & Switching</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <section id="projects">
-            <h2>> ls ./personal-projects</h2>
-
-            <div class="project-grid">
-                <div class="bento-box">
-                    <div class="project-ascii">      
-    \ | /    
-  '-.;;;.-'  
- -==;;;;;==- 
-  .-';;;'-.  
-    / | \
+        <div id="projects" class="snap-stage">
+            <section class="win-card">
+                <div class="win-header">
+                    <div class="win-title"><span>/home/yaradotexe/projects/</span></div>
+                    <div class="win-controls">
+                        <span class="win-dot dot-red"></span>
+                        <span class="win-dot dot-yellow"></span>
+                        <span class="win-dot dot-green"></span>
                     </div>
-                    <div class="box-title">> Project Icarus</div>
-                    <p>Custom Linux-Distribution (immutable, bluebuild) und Environment Optimierung für maximale Performance mit minimal Bloat.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Linux</span>
-                        <span class="tag">Kernel</span>
-                    </div>
-                    <a href="icarus.html" class="project-link">> view_writeup.sh</a>
                 </div>
+                <div class="win-body">
+                    <div class="projects-grid">
+                        
+                        <div class="project-card">
+                            <div class="ascii-box">
+<pre class="project-ascii">
+   \ | /   
+ '-.;;;.-' 
+-==;;;;;==-
+ .-';;;'-. 
+   / | \   
+</pre>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-card-title">> <span class="color-hover color-hover-pink">Project</span> <span class="color-hover color-hover-yellow">Icarus</span></h3>
+                                <p class="project-card-desc">Custom Linux-Distribution (immutable, bluebuild) und Environment-Optimierung für maximale Performance ohne Bloatware.</p>
+                            </div>
+                            <div class="project-footer">
+                                <div class="tags-wrap">
+                                    <span class="pill-tag">Linux</span>
+                                    <span class="pill-tag">Immutable</span>
+                                </div>
+                                <a href="icarus.html" class="app-btn">> view_writeup.sh</a>
+                            </div>
+                        </div>
 
-                <div class="bento-box">
-                    <div class="project-ascii">
-    .---.    
-   /     \   
-   | @ @ |   
-   v  -  v   
-   /|   |\   
-  / |___| \  
-  `-"   "-`
+                        <div class="project-card">
+                            <div class="ascii-box">
+<pre class="project-ascii">
+   .---.   
+  /     \  
+  | @ @ |  
+  v  -  v  
+  /|   |\  
+</pre>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-card-title">> <span class="color-hover color-hover-green">Bit-By-Bit</span> <span class="color-hover color-hover-mauve">Buddy</span></h3>
+                                <p class="project-card-desc">Interaktives Retro-Lern-Terminal im Browser für FiSi-Auszubildende zur Vorbereitung auf die IHK-Abschlussprüfung (AP1).</p>
+                            </div>
+                            <div class="project-footer">
+                                <div class="tags-wrap">
+                                    <span class="pill-tag">Terminal</span>
+                                    <span class="pill-tag">Tools</span>
+                                </div>
+                                <a href="buddy.html" class="app-btn">> view_writeup.sh</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="ascii-box">
+<pre class="project-ascii">
+   .---.   
+  /     \  
+  |     |  
+ .-------. 
+ |  (O)  | 
+</pre>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-card-title">> <span class="color-hover color-hover-mauve">Portfolio</span> <span class="color-hover color-hover-green">Deploy</span></h3>
+                                <p class="project-card-desc">Gehärtete Web-Infrastruktur auf GitHub Pages, proxied über Cloudflare Edge mit HSTS, DNSSEC und optimalem Caching.</p>
+                            </div>
+                            <div class="project-footer">
+                                <div class="tags-wrap">
+                                    <span class="pill-tag">Cloudflare</span>
+                                    <span class="pill-tag">Security</span>
+                                </div>
+                                <a href="deployment.html" class="app-btn">> view_writeup.sh</a>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="box-title">> Bit-By-Bit Buddy</div>
-                    <p>Ein smarter Helfer im Browser für Auszubildende der Fachinformatikerausbildung zum spielerischen Lernen für die AP1.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Webdesign</span>
-                        <span class="tag">Tools</span>
+                </div>
+            </section>
+        </div>
+
+        <div id="contact" class="snap-stage">
+            <section class="win-card">
+                <div class="win-header">
+                    <div class="win-title"><span>socket://handshake:443 [LISTENING]</span></div>
+                    <div class="win-controls">
+                        <span class="win-dot dot-red"></span>
+                        <span class="win-dot dot-yellow"></span>
+                        <span class="win-dot dot-green"></span>
                     </div>
-                    <a href="buddy.html" class="project-link">> view_writeup.sh</a>
                 </div>
+                <div class="win-body contact-container">
+                    <h2 class="contact-headline">> Interesse geweckt?</h2>
+                    <p class="contact-sub">
+                       Ich bin momentan auf der Suche nach neuen Herausforderungen in folgenden Bereichen: 
+                    </p>
 
-                <div class="bento-box">
-                    <div class="project-ascii">  
-    .---.    
-   /     \   
-   |     |   
-  .-------.  
-  |   _   |  
-  |  (O)  |  
-  '-------'
+                    <div class="focus-pills">
+                        <span class="pill-tag verified">Network Administration</span>
+                        <span class="pill-tag verified">Cybersecurity</span>
+                        <span class="pill-tag verified">Open Source Integration</span>
+                        <span class="pill-tag verified">IT Forensics</span>
                     </div>
-                    <div class="box-title">> Portfolio Deployment</div>
-                    <p>Eigene Web-Infrastruktur auf GitHub Pages, optimiert via Cloudflare für maximale Performance und Edge-Security.</p>
-                    <div class="skill-tags">
-                        <span class="tag">Cloudflare</span>
-                        <span class="tag">Security</span>
+
+
+                    <p class="project-card-desc">
+                       > Ich freue mich aber auch über Chancen in anderen Bereichen. 
+                    </p>
+
+                    <div class="hero-actions" style="justify-content: center;">
+                        <a href="mailto:yblankenstein@proton.me" class="app-btn primary">> E-Mail senden</a>
+                        <a href="https://www.linkedin.com/in/yaradotexe/" target="_blank" rel="noopener" class="app-btn">> LinkedIn</a>
+                        <a href="LYBlankenstein.pdf" download class="app-btn">> Lebenslauf (PDF)</a>
+                        <a href="visitenkarte.html" class="app-btn">> Visitenkarte</a>
                     </div>
-                    <a href="deployment.html" class="project-link">> view_writeup.sh</a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="contact">
-            <h2>> ./initiate_handshake.sh</h2>
-
-            <div class="bento-box contact-box" style="text-align: center; max-width: 800px; padding: 2.5rem 2rem;">
-                <div class="box-title">> Connection Status: LISTENING</div>
-
-                <p style="font-size: 1.2rem; margin-top: 1rem;">
-                    Interesse geweckt? Ich bin momentan auf der Suche nach neuen Herausforderungen in folgenden Bereichen:
-                </p>
-
-                <div class="story-tags" style="margin: 2rem 0;">
-                    Secure Systems Integration // Incident Response // Open Source Integration
+            <footer class="site-footer">
+                <div class="terminal-statusbar">
+                    <span>[SYS_STAT: OK]</span>
+                    <span id="uptime-display">Uptime: 0d 0h 0m</span>
+                    <span>Packets: 0 dropped, 100% vibe</span>
+                    <span>Status: 200 OK</span>
                 </div>
-
-                <p style="margin-bottom: 3rem;">
-                    > Ich freue mich auch über Chancen in anderen Bereichen.
-                </p>
-
-                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="mailto:yblankenstein@proton.me" class="project-link" style="font-size: 1.2rem;">[>> Schreib mir 'ne Mail]</a>
-                    <a href="LYBlankenstein.pdf" download class="project-link" style="font-size: 1.2rem;">[>> Lebenslauf.pdf]</a>
-                </div>
-            </div>
-
-            <footer class="footer">
                 <p>&copy; 2026 Lea Yara Blankenstein</p>
             </footer>
-        </section>
+        </div>
+
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=1.3" defer></script>
 </body>
 
 </html>
