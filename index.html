@@ -15,7 +15,7 @@
     <meta name="description"
         content="Portfolio von Lea Yara Blankenstein">
     <meta name="keywords"
-        content="Lea Yara Blankenstein, Fachinformatikerin, Systemintegration, Linux, Btrfs, OPNsense, Cloudflare, Tailscale, IT-Infrastruktur, Netzwerk-Integration, Papenburg, Emsland">
+        content="Lea Yara Blankenstein, Fachinformatikerin, Systemintegration">
     <meta name="author" content="Lea Yara Blankenstein">
     <meta name="robots" content="noindex, nofollow">
 
@@ -25,6 +25,19 @@
     <meta property="og:description"
         content="Portfolio von Lea Yara Blankenstein.">
     <meta property="og:image" content="https://yara.pw/ascii-text-art.png">
+    <script>
+        (function() {
+            var hasBooted = localStorage.getItem('yara-boot-completed') === 'true' || 
+                            localStorage.getItem('yara-skip-notice') === 'true';
+            if (hasBooted) {
+                document.documentElement.classList.add('boot-bypassed');
+            }
+        })();
+    </script>
+    <style>
+        .boot-bypassed #boot-screen { display: none !important; }
+        .boot-bypassed #main-content { display: block !important; opacity: 1 !important; }
+    </style>
 </head>
 
 <body class="crt">
@@ -203,7 +216,7 @@
                     <div class="about-headline">> <span class="color-hover color-hover-pink">Moin,</span> <span class="color-hover color-hover-green">ich bin</span> <span class="color-hover color-hover-yellow">Yara!</span></div>
 
                     <p class="about-desc">
-                        Nach gut zweieinhalb Jahren im Support für KMUs schließe ich demnächst meine Ausbildung zur Fachinformatikerin für Systemintegration ab.<br><br>
+                        Nach gut zweieinhalb Jahren im Support für KMUs schließe ich im Januar 2027 meine Ausbildung zur Fachinformatikerin für Systemintegration ab.<br><br>
                         Mein Fokus: Netzwerke, Linux und Security.<br>
                         Ich gebe mich nicht damit zufrieden, dass ein System einfach nur „irgendwie läuft“, sondern will verstehen, absichern und optimieren.
                         Nebenbei tüftle ich an eigenen Setups, bereite mich auf Cisco-Zertifizierungen vor und baue Tools, die den Alltag leichter machen.
@@ -248,20 +261,20 @@
                         <div class="timeline-role">Auszubildende FiSi | <a href="https://www.johannesburg.de" target="_blank" rel="noopener" class="color-hover color-hover-green">Johannesburg GmbH</a>, Surwold</div>
                         <p class="timeline-desc">Betreuung und stetige Optimierung der internen heterogenen IT-Landschaft.</p>
                         <ul class="timeline-bullets">
-                            <li>Administration & Wartung von Linux- und Windows-Serversystemen</li>
-                            <li>Netzwerk-Monitoring, Firewall-Konfiguration und User Support (AP1 & AP2 Vorbereitung)</li>
-                            <li>Umsetzung von Virtualisierungs- und Datensicherungskonzepten</li>
+                            <li>Vorbereitung auf die IHK-Abschlussprüfung </li>
+                            <li>Betreuung, Absicherung & Administration der internen Infrastruktur</li>
+                            <li>Setup, Support, kontinuierliche Wartung & Monitoring der Systeme​</li>
                         </ul>
                     </div>
 
                     <div class="timeline-entry">
                         <div class="timeline-period">2023 - 2025</div>
                         <div class="timeline-role">Auszubildende FiSi | <a href="https://medial-networks.de/" target="_blank" rel="noopener" class="color-hover color-hover-yellow">Medial Networks</a>, Papenburg</div>
-                        <p class="timeline-desc">Solide Grundausbildung in Systemintegration, ISP-Umfeld und Kundensupport.</p>
+                        <p class="timeline-desc">Solide Grundausbildung in Systemintegration, KMU-Umfeld und Kundensupport.</p>
                         <ul class="timeline-bullets">
                             <li>1st & 2nd Level Support via Telefon, E-Mail, Remote & Vor-Ort-Einsätzen</li>
                             <li>Initiales Server-Provisioning, Hardware-Diagnose & Komponententausch</li>
-                            <li>Strukturierte Verkabelung, Router-/Switch-Konfigurationen und VLAN-Setups</li>
+                            <li>Strukturierte Verkabelung, sowie umfassende Hard- & Software-Konfiguration und Wartung </li>
                         </ul>
                     </div>
 
@@ -282,7 +295,7 @@
                 <div class="win-body">
                     <div class="certs-grid">
                         
-                        <a href="https://www.credly.com/earner/earned/badge/b7085803-eebf-401f-99cb-554ff1e5f109" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/b7085803-eebf-401f-99cb-554ff1e5f109/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/cyberops-associate.png" alt="Cisco CyberOps Associate Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">CyberOps Associate</div>
@@ -290,7 +303,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/be26e25a-0590-497f-800b-8682967963ba" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/be26e25a-0590-497f-800b-8682967963ba/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/ethical-hacker.png" alt="Cisco Ethical Hacker Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Ethical Hacker</div>
@@ -298,7 +311,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/0cb8c649-0c95-4e85-b92e-d1861f9dea74" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/0cb8c649-0c95-4e85-b92e-d1861f9dea74/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/sustainability.png" alt="IBM Sustainability and Technology Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Sustainability & Tech</div>
@@ -306,7 +319,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/bc657c14-5d54-45e5-b7ed-ec00c540ebbc" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/bc657c14-5d54-45e5-b7ed-ec00c540ebbc/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/fundamentals.png" alt="IBM Cybersecurity Fundamentals Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Cybersecurity Fundamentals</div>
@@ -314,7 +327,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/ce799dac-22a3-42ba-9b27-73344f4c0535" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/ce799dac-22a3-42ba-9b27-73344f4c0535/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/data-literacy.png" alt="IBM Data Literacy Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Data Literacy</div>
@@ -322,7 +335,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/01604921-aa12-4821-af74-725308ad9753" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/01604921-aa12-4821-af74-725308ad9753/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/emerging-tech.png" alt="IBM Explore Emerging Tech Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Explore Emerging Tech</div>
@@ -330,7 +343,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/39e7e40e-6c76-40da-9478-b7ff08160ab0" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/39e7e40e-6c76-40da-9478-b7ff08160ab0/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/getting-started.png" alt="IBM Getting Started with Cybersecurity Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Getting Started CyberSec</div>
@@ -338,7 +351,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/47f066a5-fd33-4bcb-a7b1-8d5d96c72020" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/47f066a5-fd33-4bcb-a7b1-8d5d96c72020/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/governance.png" alt="IBM Governance, Risk and Compliance Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">GRC & Privacy</div>
@@ -346,7 +359,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/2d61a138-03eb-479e-a967-54c8b5313866" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/2d61a138-03eb-479e-a967-54c8b5313866/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/introduction-to-iot.png" alt="Cisco Introduction to IoT Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Introduction to IoT</div>
@@ -354,7 +367,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.credly.com/earner/earned/badge/82a44c1a-29a5-4059-97c2-954e880da475" target="_blank" rel="noopener" class="cert-card">
+                        <a href="https://www.credly.com/badges/82a44c1a-29a5-4059-97c2-954e880da475/public_url" target="_blank" rel="noopener" class="cert-card">
                             <div class="pixel-badge"><img src="badges/threat-detection.png" alt="Datadog Attacks and Threat Detection Badge"></div>
                             <div class="cert-info">
                                 <div class="cert-title">Attacks & Threat Detection</div>
@@ -558,7 +571,6 @@
                         <a href="mailto:yblankenstein@proton.me" class="app-btn primary">> E-Mail senden</a>
                         <a href="https://www.linkedin.com/in/yaradotexe/" target="_blank" rel="noopener" class="app-btn">> LinkedIn</a>
                         <a href="LYBlankenstein.pdf" download class="app-btn">> Lebenslauf (PDF)</a>
-                        <a href="visitenkarte.html" class="app-btn">> Visitenkarte</a>
                     </div>
                 </div>
             </section>
